@@ -1,8 +1,6 @@
 """medium"""
 
 from typing import List, Dict
-from collections import Counter
-from types import MappingProxyType
 
 
 class Solution:
