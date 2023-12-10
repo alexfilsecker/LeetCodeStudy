@@ -1,3 +1,5 @@
+"""easy"""
+
 from typing import Dict
 
 

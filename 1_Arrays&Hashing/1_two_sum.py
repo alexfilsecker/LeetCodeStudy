@@ -1,3 +1,6 @@
+"""easy"""
+
+
 from typing import List
 
 
