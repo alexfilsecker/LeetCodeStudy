@@ -1,3 +1,5 @@
+"""medium"""
+
 from typing import List
 
 
