@@ -3,14 +3,14 @@
 from typing import List
 
 
-class Solution(object):
+class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
-        hash = {}
+        hash = set()
         for num in nums:
             if num in hash:
                 return True
             else:
-                hash[num] = True
+                hash.add(num)
 
         return False
 
