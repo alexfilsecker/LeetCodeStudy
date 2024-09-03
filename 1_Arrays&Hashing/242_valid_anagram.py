@@ -5,8 +5,10 @@ from typing import Dict
 
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
+        # Check if the strings are the same lenght
         if len(s) != len(t):
             return False
+
         # hash s
         hash: Dict[str, int] = {}
         for char in s:
