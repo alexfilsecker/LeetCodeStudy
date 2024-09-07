@@ -1,3 +1,5 @@
+"""easy"""
+
 from list_utils import ListNode, recursive_create, add_cycle, view_list
 from typing import Optional
 
