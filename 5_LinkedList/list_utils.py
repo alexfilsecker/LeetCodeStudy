@@ -11,7 +11,7 @@ class ListNode:
         return f"Node = {self.val}"
 
 
-def recursive_create(values: List[int], index: int) -> ListNode:
+def recursive_create(values: List[int], index: int = 0) -> ListNode:
     node = ListNode()
     node.val = values[index]
     if index < len(values) - 1:
