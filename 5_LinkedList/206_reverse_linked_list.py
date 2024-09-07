@@ -1,3 +1,5 @@
+"""easy"""
+
 from typing import List, Optional
 
 
@@ -6,6 +8,9 @@ class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
         self.next = next
+
+    def __repr__(self):
+        return f"Node = {self.val}"
 
 
 def recursive_create(values: List[int], index: int) -> ListNode:
@@ -18,40 +23,30 @@ def recursive_create(values: List[int], index: int) -> ListNode:
 
 
 def view_list(head: ListNode):
-    a = []
-
-    def append_to_list(node: ListNode):
-        print(node.val)
-        a.append(node.val)
+    node = head
+    node_list = []
+    while True:
+        if node is None:
+            break
+        node_list.append(node.val)
         if node.next is None:
-            return
-        append_to_list(node.next)
+            break
+        node = node.next
 
-    append_to_list(head)
-    print(a)
+    print(node_list)
 
 
 class Solution:
     def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        new_head = ListNode()
+        current = head
+        prev = None
+        while current is not None:
+            next = current.next
+            current.next = prev
+            prev = current
+            current = next
 
-        def recursive_reverse(node: ListNode, new_head: ListNode) -> ListNode:
-            print("visiting", node.val, node.next)
-            if node.next is None:
-                node.next = node
-                new_head.val = node.val
-                new_head.next = node.next
-                return
-
-            next = node.next
-            node.next = node
-            recursive_reverse(next, new_head)
-            node.next = None
-
-        recursive_reverse(head, new_head)
-        print(new_head)
-
-        view_list(new_head)
+        return prev
 
 
 if __name__ == "__main__":
