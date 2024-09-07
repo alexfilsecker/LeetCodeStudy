@@ -20,10 +20,24 @@ def recursive_create(values: List[int], index: int = 0) -> ListNode:
     return node
 
 
+def add_cycle(head: ListNode, pos: int):
+    cur = head
+    counter = 0
+    cycle_node = None
+    while cur.next is not None:
+        if counter == pos:
+            cycle_node = cur
+        cur = cur.next
+        counter += 1
+
+    cur.next = cycle_node
+
+
 def view_list(head: ListNode):
     node = head
     node_list = []
     while True:
+        print(node)
         if node is None:
             break
         node_list.append(node.val)
