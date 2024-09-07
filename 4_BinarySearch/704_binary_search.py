@@ -8,7 +8,6 @@ class Solution:
         left, right = 0, len(nums) - 1
         while left <= right:
             mid = left + (right - left) // 2
-            print(*(nums[i] for i in [left, mid, right]))
             if nums[mid] == target:
                 return mid
             elif nums[mid] < target:
