@@ -1,25 +1,31 @@
-"""medium"""
+"""hard"""
 
 from typing import List
 
 
 class Solution:
-    def maxArea(self, height: List[int]) -> int:
-        print(height)
-        l, r = 0, len(height) - 1
-        result = 0
-        while l < r:
-            total = min(height[l], height[r]) * (r - l)
-            print(height[l], height[r], total)
-            result = max(result, total)
-            if height[l] > height[r]:
-                r -= 1
+    def trap(self, height: List[int]) -> int:
+        left, right = 0, len(height) - 1
+        max_l, max_r = 0, 0
+        trapped = 0
+        index = left
+        while left < right:
+            left_v, right_v = height[left], height[right]
+            max_l = max(max_l, left_v)
+            max_r = max(max_r, right_v)
+            water = min(max_l, max_r) - height[index]
+            if water > 0:
+                trapped += water
+            if left_v <= right_v:
+                left += 1
+                index = left
             else:
-                l += 1
+                right -= 1
+                index = right
 
-        return result
+        return trapped
 
 
 if __name__ == "__main__":
-    height = [1, 3, 2, 5, 25, 24, 5]
-    print(Solution().maxArea(height))
+    heights = [0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]
+    print(Solution().trap(heights))
