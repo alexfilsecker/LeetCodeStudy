@@ -1,4 +1,4 @@
-from typing import Optional, List
+from typing import Optional, List, Union
 
 
 # Definition for a binary tree node.
@@ -18,7 +18,7 @@ class TreeNode:
         return f"val: {self.val}, left: {left_value}, right: {right_value}"
 
 
-def build_binary_tree(nums):
+def build_binary_tree(nums: List[Union[None, int]]):
     if not nums:
         return None
 
