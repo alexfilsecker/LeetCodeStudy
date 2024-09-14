@@ -1,4 +1,8 @@
-"""easy 2"""
+"""
+difficulty: easy
+completed times: 2
+link: https://leetcode.com/problems/valid-anagram/description/
+"""
 
 from typing import Dict
 

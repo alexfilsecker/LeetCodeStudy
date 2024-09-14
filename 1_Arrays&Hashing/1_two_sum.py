@@ -1,4 +1,8 @@
-"""easy 2"""
+"""
+difficulty: easy
+completed times: 2
+link: https://leetcode.com/problems/two-sum/description/
+"""
 
 from typing import List
 
