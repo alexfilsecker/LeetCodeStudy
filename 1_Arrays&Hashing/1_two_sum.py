@@ -2,7 +2,8 @@
 Difficulty: Easy
 Times Completed: 2
 Link: https://leetcode.com/problems/two-sum/description/
-Basic Description: Return the two numbers in an array that sum a target number
+Basic Description:
+    Return the two numbers in an array that sum a target number
 """
 
 from typing import List

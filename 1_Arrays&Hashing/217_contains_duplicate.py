@@ -2,7 +2,8 @@
 Dificulty: Easy 
 Times Completed: 2
 Link: https://leetcode.com/problems/contains-duplicate/description/
-Basic Description: Check if an array of nums has a duplicated value
+Basic Description:
+    Check if an array of nums has a duplicated value
 """
 
 from typing import List
