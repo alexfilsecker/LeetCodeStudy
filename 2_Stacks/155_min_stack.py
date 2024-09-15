@@ -1,21 +1,39 @@
-"""medium"""
+"""
+Difficulty: Medium
+Times Completed: 1
+Link: https://leetcode.com/problems/min-stack/description/
+Basic Description:
+    Create a MinStack class that supports push, pop, top, and getMin methods.
+    getMin must be in O(1) time
+"""
 
 from typing import List, Union
 
 
 class MinStack:
+    """
+    The tricky thing here is to keep a secondary stack for the minimum.
+    This will be a monotonic stack, meaning that it will be always decreasing
+    """
+
     def __init__(self):
         self.stack = []
         self.min_stack = []
 
     def push(self, val: int) -> None:
-        if len(self.min_stack) == 0:
-            self.min_stack.append(val)
-        elif val <= self.min_stack[-1]:
+        """
+        Apend the value to the min_stack if it is leq than
+        the top of min_stack or if it is empty
+        """
+        if len(self.min_stack) == 0 or val <= self.min_stack[-1]:
             self.min_stack.append(val)
         self.stack.append(val)
 
     def pop(self) -> None:
+        """
+        If the value we just poped is the same as the top of the min_stack
+        (meaning it is actually the minimum), we pop it as well from the min_stack
+        """
         val = self.stack.pop()
         if val == self.min_stack[-1]:
             self.min_stack.pop()
