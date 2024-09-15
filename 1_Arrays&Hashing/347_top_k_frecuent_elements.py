@@ -1,4 +1,10 @@
-"""medium"""
+"""
+Dificulty: Medium
+Times Completed: 1
+Link: https://leetcode.com/problems/top-k-frequent-elements/description/
+Basic Description:
+    Given an array of nums, return an array of the k most common numbers.
+"""
 
 from typing import List
 from collections import Counter
@@ -6,6 +12,10 @@ from collections import Counter
 
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        """
+        Basically, create a couter for the numbers, then sort it by frecuency and return
+        a the k most frecuent. This actually feels like cheating.
+        """
         num_counter = Counter(nums)
         sorted_counter = sorted(num_counter.items(), key=lambda x: x[1], reverse=True)
         result = []
