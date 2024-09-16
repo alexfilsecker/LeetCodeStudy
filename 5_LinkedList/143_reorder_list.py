@@ -1,6 +1,6 @@
 """
 Difficulty: Medium
-Times Completed: 1
+Times Completed: 2
 Link: https://leetcode.com/problems/reorder-list/description/
 Basic Description:
     Reorder a linked list in the order 0 -> n-1 -> 1 -> n-2 -> 2 -> n-3 ...
@@ -13,39 +13,48 @@ from typing import Optional
 class Solution:
     def reorderList(self, head: Optional[ListNode]) -> None:
         """
-        The aproach is to store the linked list into a list and then
-        pop from the left and right of it
+        The aproach is divided in three steps:
+        1. find the middle
+        2. reverse the list from the middle to the end
+        3. have two pointer, one from the head and the other from the end,
+           and start to reorder the list
         """
 
-        # The linked list must at least of size 3 to actually have to do something
-        if head is None or head.next is None:
+        # Required minimum length of 3
+        if head is None or head.next is None or head.next.next is None:
             return
 
-        # Store all nodes into a list
-        nodes = []
-        pointer = head
-        while pointer is not None:
-            nodes.append(pointer)
-            pointer = pointer.next
+        # 1. Find the middle
+        slow, fast = head, head
+        while fast is not None and fast.next is not None:
+            fast = fast.next.next
+            slow = slow.next
 
-        # Pop from the left, then right, then left until there is no more nodes
-        i = 0
-        pointer = nodes.pop(0)
-        while len(nodes) > 0:
-            if i % 2 == 0:
-                pointer.next = nodes.pop()
-            else:
-                pointer.next = nodes.pop(0)
+        # 2. Reverse from the middle
+        current = slow
+        prev = None
+        while current is not None:
+            next = current.next
+            current.next = prev
+            prev = current
+            current = next
 
-            i += 1
-            pointer = pointer.next
-
-        # Ensure that the last node is the last node
-        pointer.next = None
+        # 3. Reorder the list
+        right = prev
+        left = head
+        while right.next is not None and left.next is not None:
+            next_left = left.next
+            left.next = right
+            left = left.next
+            next_right = right.next
+            left.next = next_left
+            right = next_right
+            left = left.next
 
 
 if __name__ == "__main__":
-    values = [1, 2]
+    values = [1, 2, 3, 4]
     head = recursive_create(values)
     Solution().reorderList(head)
+    print("\nSolution Done")
     view_list(head)

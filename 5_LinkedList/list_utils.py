@@ -37,7 +37,7 @@ def view_list(head: ListNode):
     node = head
     node_list = []
     while True:
-        print(node)
+        # print(node)
         if node is None:
             break
         node_list.append(node.val)
