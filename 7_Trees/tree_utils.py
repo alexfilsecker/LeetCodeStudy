@@ -3,7 +3,12 @@ from typing import Optional, List, Union
 
 # Definition for a binary tree node.
 class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
+    def __init__(
+        self,
+        val=0,
+        left: "Optional[TreeNode]" = None,
+        right: "Optional[TreeNode]" = None,
+    ):
         self.val = val
         self.left = left
         self.right = right
@@ -42,11 +47,11 @@ def build_binary_tree(nums: List[Union[None, int]]):
     return root
 
 
-def get_nodes(root):
+def get_nodes(root: Optional[TreeNode]) -> List[int]:
     if not root:
         return []
 
-    nodes = []
+    nodes: List[int] = []
     queue = [root]
 
     while queue:
