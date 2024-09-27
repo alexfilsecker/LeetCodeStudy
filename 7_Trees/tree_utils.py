@@ -64,3 +64,17 @@ def get_nodes(root: Optional[TreeNode]) -> List[int]:
             queue.append(node.right)
 
     return nodes
+
+
+def find_in_bst(root: Optional[TreeNode], value: int) -> Optional[TreeNode]:
+    if root is None:
+        return None
+
+    if root.val == value:
+        return root
+
+    if value > root.val:
+        return find_in_bst(root.right, value)
+
+    else:
+        return find_in_bst(root.left, value)
