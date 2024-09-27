@@ -34,12 +34,12 @@ def build_binary_tree(nums: List[Union[None, int]]):
     while i < len(nums):
         node = queue.pop(0)
 
-        if i < len(nums):
+        if i < len(nums) and nums[i] is not None:
             node.left = TreeNode(nums[i])
             queue.append(node.left)
         i += 1
 
-        if i < len(nums):
+        if i < len(nums) and nums[i] is not None:
             node.right = TreeNode(nums[i])
             queue.append(node.right)
         i += 1
