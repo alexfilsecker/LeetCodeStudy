@@ -8,7 +8,7 @@ Basic Description:
     minimum intervals required to complete all tasks
 """
 
-from typing import List, Tuple, Optional
+from typing import List, Tuple
 from collections import Counter, deque
 from heapq import heapify, heappop, heappush
 
